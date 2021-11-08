@@ -1,0 +1,9 @@
+{% extends 'blog/main.html' %} {% block content %}
+<div>
+    <img src="{{ u1.image }}" width="100" height="100" style="border-radius:50%;" />
+    <h1 style="float:right;">{{ u1.nickname }}</h1>
+    <br/>
+    <br/>
+    <a href="mailto:{{ u1.email }}" style="padding: 10;">Conatct me </a>
+</div>
+{% endblock %}

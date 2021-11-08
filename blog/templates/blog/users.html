@@ -1,0 +1,7 @@
+{% extends 'blog/main.html' %} {% block content %}
+<h1> Users </h1>
+{% for i in users %}
+<div>
+    <h3><a href="{% url 'user' pk=i.pk %}"> {{i.name}} </a></h3>
+</div>
+{% endfor %} {% endblock %}

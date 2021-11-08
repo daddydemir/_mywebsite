@@ -1,0 +1,10 @@
+{% extends 'blog/main.html' %} {% block content %}
+<div>
+    <h1>Yeni kullanıcı oluştur</h1>
+    <form method="POST" class="post-form">
+        {% csrf_token %}{{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Kaydet</button>
+    </form>
+
+</div>
+{% endblock %}

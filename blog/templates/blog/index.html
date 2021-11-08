@@ -1,0 +1,6 @@
+{% extends 'blog/main.html' %} {% block content %} {% for i in list_of_blog %}
+<div>
+    <h1>{{ i.title }}</h1>
+    <p> AÇIKLAMA</p>
+</div>
+{% endfor %} {% endblock %}
