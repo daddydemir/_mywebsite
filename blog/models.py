@@ -1,7 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 
 class Users(models.Model):
@@ -15,6 +16,6 @@ class Users(models.Model):
 class Blogs(models.Model):
     user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
     header = models.CharField(max_length=50)
-    content = models.TextField(max_length=20000)
+    content = RichTextUploadingField(max_length=20000)
     image = models.TextField(max_length=1000)
     date = models.DateTimeField(default=timezone.now())

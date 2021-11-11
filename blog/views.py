@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Users, Blogs
-from .forms import AddUserForm
+from .forms import AddUserForm , AddBlogForm
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
 
@@ -28,4 +28,15 @@ def add_user(request):
         form = AddUserForm()
     return render(request, 'blog/add_user.html' , {'form': form})
 
+
+def add_post(request):
+    if(request.method == 'POST'):
+        form = AddBlogForm(request.POST)
+        if(form.is_valid()):
+            post_item = form.save(commit=False)
+            post_item.save()
+            return redirect('/')
+    else:
+        form = AddBlogForm()
+    return render(request , 'blog/add_post.html' , {'form':form})
 
